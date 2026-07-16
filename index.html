@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Елена — мастер красоты в Санкт-Петербурге</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cinzel:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET ===== */
+*,:before,:after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  background:#faf8f5;color:#2d2416;line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+a{color:inherit;text-decoration:none}img{max-width:100%;height:auto;display:block}
+button{cursor:pointer;font-family:inherit}
+
+/* ===== TOKENS (ElysiumAI) ===== */
+:root{
+  --accent:#c9a961;
+  --accent-light:#e2c57e;
+  --accent-dark:#b98a5e;
+  --accent-soft:rgba(201,169,97,0.12);
+  --accent-border:rgba(201,169,97,0.35);
+  --accent-border-strong:rgba(201,169,97,0.52);
+  --text-main:#2d2416;
+  --text-secondary:#6b5d4a;
+  --text-muted:#9a8a74;
+  --bg:#faf8f5;
+  --bg-warm:#f5f2ed;
+  --surface:rgba(255,255,255,0.72);
+  --surface-panel:rgba(255,255,255,0.85);
+  --border-soft:rgba(201,169,97,0.2);
+  --shadow:0 12px 40px rgba(0,0,0,0.06);
+  --shadow-lg:0 25px 60px rgba(111,78,27,0.14);
+  --radius:18px;
+  --radius-lg:28px;
+  --font-display:'Cinzel',serif;
+  --font-elegant:'Cormorant Garamond',serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+/* ===== DARK THEME ===== */
+html.dark{color-scheme:dark}
+html.dark body{background:#1c1915;color:#eee5d6}
+html.dark{
+  --text-main:#eee5d6;
+  --text-secondary:#e8ddcab8;
+  --text-muted:#d3c4ac94;
+  --bg:#1c1915;
+  --bg-warm:#211d18;
+  --surface:rgba(47,41,33,0.85);
+  --surface-panel:rgba(47,41,33,0.92);
+  --border-soft:rgba(214,181,111,0.2);
+  --accent-border:rgba(214,181,111,0.3);
+  --accent-border-strong:rgba(214,181,111,0.45);
+  --accent-soft:rgba(201,169,97,0.08);
+  --shadow:0 12px 40px rgba(0,0,0,0.25);
+  --shadow-lg:0 25px 60px rgba(0,0,0,0.4);
+}
+html.dark .site-header{background:rgba(28,25,21,0.88);border-color:rgba(214,181,111,0.2)}
+html.dark .hero{background:linear-gradient(175deg,#1c1915 0%,#241f19 50%,#1c1915 100%)}
+html.dark .hero-floral{opacity:0.06}
+html.dark .hero-image-badge{background:rgba(30,26,22,0.92);border-color:rgba(214,181,111,0.2)}
+html.dark .hero-image-badge strong{color:#eee5d6}
+html.dark .service-card,.feature-card,.testimonial-card,.contact-form,.about-stat,.price-panel{box-shadow:0 25px 60px rgba(0,0,0,0.35),inset 0 1px rgba(255,244,222,0.06)}
+html.dark .service-card:hover{box-shadow:0 30px 70px rgba(0,0,0,0.45),inset 0 1px rgba(255,244,222,0.08)}
+html.dark .site-footer{background:#1a1712}
+html.dark .site-footer::before{background:radial-gradient(rgba(214,181,111,0.06),transparent 66%)}
+html.dark .contact-form input,.contact-form textarea,.contact-form select{background:rgba(30,26,22,0.6)}
+html.dark .btn-secondary{background:rgba(47,41,33,0.7);color:#eee5d6}
+html.dark .btn-secondary:hover{background:rgba(47,41,33,0.9)}
+html.dark .service-card{background:radial-gradient(circle at 50% 0%,rgba(201,169,97,0.04),transparent 60%),linear-gradient(180deg,rgba(47,41,33,0.9),rgba(47,41,33,0.7))}
+html.dark .feature-card{background:rgba(47,41,33,0.7)}
+html.dark .price-col-title{color:#eee5d6}
+html.dark .price-row-val{color:#d6b56f}
+html.dark .contact-info-item{background:rgba(47,41,33,0.7)}
+html.dark .contact-info-item strong{color:#eee5d6}
+
+/* ===== THEME TOGGLE (ElysiumAI style) ===== */
+.theme-toggle{
+  position:relative;display:grid;place-items:center;
+  width:48px;height:36px;border-radius:100px;
+  border:1px solid var(--border-soft);cursor:pointer;
+  background:linear-gradient(145deg,var(--bg-warm),var(--bg));
+  transition:all 0.3s;overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),0 4px 12px rgba(104,77,34,0.08);
+}
+html.dark .theme-toggle{
+  background:rgba(55,48,42,0.8);
+  border-color:rgba(214,181,111,0.35);
+  box-shadow:inset 0 1px 0 rgba(255,244,222,0.08),0 4px 16px rgba(0,0,0,0.3);
+}
+html.dark .theme-toggle:hover{border-color:rgba(214,181,111,0.55)}
+.theme-toggle-sun,.theme-toggle-moon{
+  position:absolute;transition:all 0.4s ease;
+  color:var(--text-muted);z-index:1;
+}
+html.dark .theme-toggle-sun,
+html.dark .theme-toggle-moon{color:rgba(238,229,214,0.5)}
+.theme-toggle-sun{opacity:1;transform:translateY(0)}
+html.dark .theme-toggle-sun{opacity:0;transform:translateY(10px)}
+.theme-toggle-moon{opacity:0;transform:translateY(-10px)}
+html.dark .theme-toggle-moon{opacity:1;transform:translateY(0)}
+.theme-toggle-knob{
+  position:absolute;width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(145deg,#fffdf7,#f1d898);
+  border:1px solid rgba(255,255,255,0.65);
+  left:3px;transition:transform 0.4s ease,background 0.4s;
+  box-shadow:0 2px 8px rgba(130,91,27,0.2);
+  z-index:2;
+}
+html.dark .theme-toggle-knob{
+  transform:translateX(14px);
+  background:linear-gradient(145deg,#e2c57e,#b98a5e);
+  border-color:rgba(255,255,255,0.2);
+  box-shadow:0 2px 10px rgba(185,138,94,0.5),0 0 20px rgba(201,169,97,0.25);
+}
+
+/* ===== HEADER (ElysiumAI style) ===== */
+.site-header{
+  position:fixed;left:0;right:0;top:0;z-index:50;
+  border-bottom:1px solid var(--border-soft);
+  background:rgba(250,248,245,0.88);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.08);
+}
+.header-inner{
+  max-width:1440px;margin:0 auto;padding:0 24px;
+  height:80px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;
+}
+.logo{display:flex;align-items:center;gap:14px;min-height:44px}
+.logo-mark{
+  width:40px;height:40px;display:grid;place-items:center;
+  border-radius:50%;
+  background:linear-gradient(145deg,var(--accent-light),var(--accent-dark));
+  box-shadow:0 4px 14px rgba(185,138,94,0.35);
+}
+.logo-mark svg{width:22px;height:22px}
+.logo-text{
+  font-family:var(--font-display);font-size:1.6rem;font-weight:600;
+  letter-spacing:0.02em;color:var(--text-main);
+}
+.logo-text span{color:var(--accent)}
+.header-nav{display:flex;align-items:center;gap:32px}
+.header-nav a{
+  font-size:12px;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.18em;color:var(--text-secondary);
+  min-height:44px;display:inline-flex;align-items:center;
+  transition:color 0.2s;
+}
+.header-nav a:hover,.header-nav a.active{color:var(--text-main)}
+.header-right{display:flex;align-items:center;gap:8px}
+@media(max-width:767px){.header-right{gap:6px}}
+.header-social{display:flex;gap:4px}
+.header-social a{
+  width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+  color:var(--text-muted);transition:all 0.2s;
+  border:1px solid transparent;
+}
+.header-social a:hover{color:var(--accent);border-color:var(--accent-border);background:var(--accent-soft)}
+.header-social svg{width:16px;height:16px}
+.header-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 24px;border-radius:100px;
+  background:linear-gradient(145deg,var(--accent-light),var(--accent-dark));
+  color:#fff;font-size:12px;font-weight:600;letter-spacing:0.06em;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 4px 14px rgba(185,138,94,0.3);white-space:nowrap;
+}
+.header-cta:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(185,138,94,0.4)}
+.header-cta svg{width:14px;height:14px}
+
+/* ===== HERO (ElysiumAI style) ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px 24px 100px;overflow:hidden;
+  background:linear-gradient(175deg,#faf8f5 0%,#f5f0e8 50%,#faf8f5 100%);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 700px 500px at 15% 10%,rgba(201,169,97,0.09),transparent),
+    radial-gradient(ellipse 500px 400px at 85% 90%,rgba(201,169,97,0.05),transparent);
+}
+.hero-floral{position:absolute;pointer-events:none;opacity:0.12}
+.hero-floral-left{left:-160px;top:-120px;width:500px;transform:rotate(-34deg)}
+.hero-floral-right{right:-80px;top:-100px;width:380px;transform:rotate(-35deg);display:none}
+@media(min-width:768px){.hero-floral-right{display:block}}
+.hero-content{position:relative;z-index:10;max-width:1200px;margin:0 auto;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr}}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 22px;border-radius:100px;
+  border:1px solid var(--accent-border);
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.24em;color:var(--accent);
+  margin-bottom:28px;background:var(--accent-soft);
+  backdrop-filter:blur(8px);
+}
+.hero-badge svg{width:16px;height:16px}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:600;
+  line-height:1.05;color:var(--text-main);
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--accent-light),var(--accent-dark));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-subtitle{
+  font-family:var(--font-elegant);font-size:clamp(1.1rem,2vw,1.5rem);
+  font-style:italic;color:var(--text-secondary);margin-top:10px;
+}
+.hero-desc{
+  margin-top:22px;font-size:15px;line-height:1.9;color:var(--text-secondary);
+  max-width:480px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;border-radius:100px;border:none;cursor:pointer;
+  background:linear-gradient(145deg,var(--accent-light),var(--accent-dark));
+  color:#fff;font-size:14px;font-weight:600;letter-spacing:0.04em;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 6px 20px rgba(185,138,94,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(185,138,94,0.45)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;border-radius:100px;border:1px solid var(--accent-border);
+  background:var(--surface);cursor:pointer;
+  color:var(--text-main);font-size:14px;font-weight:600;letter-spacing:0.04em;
+  transition:all 0.2s;backdrop-filter:blur(8px);
+}
+.btn-secondary:hover{border-color:var(--accent-border-strong);background:rgba(255,255,255,0.9);transform:translateY(-2px)}
+.hero-benefits{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  margin-top:44px;max-width:500px;
+}
+@media(min-width:640px){.hero-benefits{grid-template-columns:repeat(4,1fr)}}
+.hero-benefits>div{
+  display:flex;flex-direction:column;gap:4px;padding:14px 12px;
+  border-radius:14px;background:var(--surface);
+  border:1px solid var(--border-soft);text-align:center;align-items:center;
+  backdrop-filter:blur(8px);
+}
+.hero-benefits svg{width:22px;height:22px;color:var(--accent);margin-bottom:4px}
+.hero-benefits strong{font-size:12px;font-weight:700;color:var(--text-main)}
+.hero-benefits small{font-size:10px;color:var(--text-muted)}
+.hero-image-wrap{
+  position:relative;border-radius:24px;overflow:hidden;
+  aspect-ratio:4/5;max-width:480px;margin:0 auto;
+  box-shadow:0 30px 80px rgba(0,0,0,0.1);
+}
+.hero-image-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-image-badge{
+  position:absolute;bottom:20px;left:20px;right:20px;
+  padding:16px 20px;border-radius:16px;
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.5);
+}
+.hero-image-badge strong{display:block;font-size:15px;font-weight:700}
+.hero-image-badge span{font-size:12px;color:var(--text-muted)}
+
+/* ===== SECTIONS ===== */
+.section{padding:100px 24px;overflow:hidden}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.24em;color:var(--accent);margin-bottom:16px;
+}
+.section-label::before{content:'';width:6px;height:6px;background:var(--accent);transform:rotate(45deg)}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.1;
+  color:var(--text-main);margin-bottom:16px;
+}
+.section-title em{
+  font-style:normal;color:var(--text-secondary);
+  font-family:var(--font-elegant);font-style:italic;font-weight:400;
+}
+.section-desc{font-size:14px;line-height:1.8;color:var(--text-secondary);max-width:560px;margin-bottom:48px}
+.bg-warm{background:var(--bg-warm);position:relative}
+
+/* ===== SERVICES (ElysiumAI cards) ===== */
+.services-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:24px;
+  max-width:720px;margin:0 auto;
+}
+@media(max-width:767px){.services-grid{grid-template-columns:1fr;max-width:400px}}
+.service-card{
+  border-radius:var(--radius);padding:32px 28px;
+  background:radial-gradient(circle at 50% 0%,rgba(201,169,97,0.06),transparent 60%),
+             linear-gradient(180deg,var(--surface-panel),var(--surface));
+  border:1px solid var(--border-soft);
+  backdrop-filter:blur(12px);transition:all 0.35s;
+  position:relative;overflow:hidden;
+}
+.service-card:hover{
+  border-color:var(--accent-border-strong);
+  transform:translateY(-4px);
+  box-shadow:0 25px 60px rgba(111,78,27,0.14),inset 0 1px rgba(255,255,255,0.9);
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:3px;
+  background:linear-gradient(90deg,var(--accent-light),var(--accent-dark));
+  opacity:0;transition:opacity 0.35s;
+}
+.service-card:hover::before{opacity:1}
+.service-icon{
+  width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(145deg,var(--accent-soft),rgba(201,169,97,0.06));
+  border:1px solid var(--accent-border);display:grid;place-items:center;
+  margin-bottom:20px;color:var(--accent);
+}
+.service-icon svg{width:24px;height:24px}
+.service-name{font-size:18px;font-weight:700;color:var(--text-main);margin-bottom:8px}
+.service-desc{font-size:13px;line-height:1.7;color:var(--text-secondary);margin-bottom:20px}
+.service-price{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 20px;border-radius:100px;
+  background:linear-gradient(145deg,var(--accent-soft),rgba(201,169,97,0.08));
+  border:1px solid var(--accent-border);
+  color:var(--accent-dark);font-size:17px;font-weight:700;
+  letter-spacing:0.03em;
+}
+.service-price small{font-weight:500;font-size:11px;opacity:0.7}
+
+/* ===== ABOUT ===== */
+.about-grid{display:grid;grid-template-columns:1fr;gap:60px;align-items:center}
+@media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr}}
+.about-image{border-radius:24px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 30px 80px rgba(0,0,0,0.1)}
+.about-image img{width:100%;height:100%;object-fit:cover}
+.about-content h3{font-family:var(--font-display);font-size:1.8rem;font-weight:600;color:var(--text-main);margin-bottom:8px}
+.about-content .location{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text-muted);margin-bottom:20px}
+.about-content .location svg{width:16px;height:16px}
+.about-content p{font-size:14px;line-height:1.8;color:var(--text-secondary);margin-bottom:14px}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.about-stat{
+  text-align:center;padding:20px 14px;border-radius:14px;
+  background:var(--surface);border:1px solid var(--border-soft);
+  backdrop-filter:blur(8px);
+}
+.about-stat strong{display:block;font-family:var(--font-display);font-size:2rem;color:var(--accent);font-weight:600}
+.about-stat span{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em}
+
+/* ===== FEATURES ===== */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.feature-card{
+  text-align:center;padding:40px 28px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--border-soft);
+  backdrop-filter:blur(8px);transition:all 0.3s;
+}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--accent-border-strong)}
+.feature-card svg{width:38px;height:38px;color:var(--accent);margin-bottom:18px}
+.feature-card h4{font-size:16px;font-weight:700;color:var(--text-main);margin-bottom:8px}
+.feature-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
+
+/* ===== PRICE LIST (ElysiumAI glass card) ===== */
+.price-panel{
+  background:var(--surface);border:1px solid var(--border-soft);
+  border-radius:var(--radius-lg);overflow:hidden;
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.06),inset 0 1px rgba(255,255,255,0.9);
+}
+.price-cols{display:flex;flex-direction:column}
+@media(min-width:768px){.price-cols{flex-direction:row;flex-wrap:wrap}}
+.price-col{
+  padding:32px;flex:1 1 50%;min-width:320px;
+  border-bottom:1px solid var(--border-soft);
+}
+.price-col:nth-child(odd){border-right:none}
+@media(min-width:768px){.price-col:nth-child(odd){border-right:1px solid var(--border-soft)}}
+.price-col:last-child{flex-basis:100%;border-bottom:none}
+.price-col-title{
+  font-family:var(--font-display);font-size:1.15rem;font-weight:600;
+  color:var(--text-main);margin-bottom:20px;padding-bottom:14px;
+  border-bottom:1px solid var(--border-soft);
+}
+.price-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid rgba(201,169,97,0.08);
+}
+.price-row:last-child{border-bottom:none}
+.price-row-info h4{font-size:14px;font-weight:600;color:var(--text-main)}
+.price-row-info p{font-size:11px;color:var(--text-muted);margin-top:2px}
+.price-row-val{
+  font-size:17px;font-weight:700;color:var(--accent-dark);white-space:nowrap;
+  margin-left:16px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:640px){.testimonials-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.testimonials-grid{grid-template-columns:1fr 1fr 1fr}}
+.testimonial-card{
+  padding:30px 26px;border-radius:var(--radius);
+  background:var(--surface);border:1px solid var(--border-soft);
+  backdrop-filter:blur(8px);
+}
+.testimonial-stars{color:var(--accent);font-size:15px;margin-bottom:14px;letter-spacing:2px}
+.testimonial-text{font-size:13px;line-height:1.8;color:var(--text-secondary);margin-bottom:18px;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(145deg,var(--accent-light),var(--accent-dark));
+  display:grid;place-items:center;color:#fff;font-size:15px;font-weight:700;
+  flex-shrink:0;
+}
+.testimonial-name{font-size:13px;font-weight:600;color:var(--text-main)}
+.testimonial-service{font-size:11px;color:var(--text-muted)}
+
+/* ===== FAQ (ElysiumAI accordion) ===== */
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border-soft)}
+.faq-question{
+  width:100%;display:flex;align-items:center;gap:18px;
+  padding:22px 0;background:none;border:none;cursor:pointer;
+  text-align:left;font-size:15px;font-weight:600;color:var(--text-main);
+  transition:color 0.2s;font-family:'Manrope',sans-serif;
+}
+.faq-question:hover{color:var(--accent)}
+.faq-number{font-family:var(--font-display);font-size:13px;color:var(--accent);opacity:0.5;min-width:28px}
+.faq-plus{margin-left:auto;font-size:24px;color:var(--accent);transition:transform 0.3s;font-weight:300;line-height:1}
+.faq-item.open .faq-plus{transform:rotate(45deg)}
+.faq-answer-wrap{overflow:hidden;max-height:0;transition:max-height 0.35s ease}
+.faq-item.open .faq-answer-wrap{max-height:300px}
+.faq-answer{padding:0 0 22px 46px;font-size:14px;line-height:1.8;color:var(--text-secondary)}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media(min-width:768px){.contact-grid{grid-template-columns:1fr 1fr}}
+.contact-info-item{
+  display:flex;align-items:center;gap:14px;margin-bottom:14px;
+  padding:14px 18px;border-radius:14px;
+  background:var(--surface);border:1px solid var(--border-soft);
+  backdrop-filter:blur(8px);
+}
+.contact-info-item svg{width:18px;height:18px;color:var(--accent);flex-shrink:0}
+.contact-info-item strong{display:block;font-size:13px;font-weight:600}
+.contact-info-item span{font-size:12px;color:var(--text-muted)}
+.contact-form{
+  display:flex;flex-direction:column;gap:14px;
+  padding:36px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border-soft);
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.06),inset 0 1px rgba(255,255,255,0.9);
+}
+.contact-form h4{font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--text-main);margin-bottom:2px}
+.contact-form p{font-size:13px;color:var(--text-muted);margin-bottom:6px}
+.contact-form input,.contact-form textarea,.contact-form select{
+  padding:14px 18px;border-radius:12px;border:1px solid var(--border-soft);
+  background:rgba(255,255,255,0.6);font-family:'Manrope',sans-serif;
+  font-size:14px;color:var(--text-main);outline:none;
+  transition:border-color 0.2s;
+}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{border-color:var(--accent)}
+.contact-form textarea{min-height:100px;resize:vertical}
+.contact-form button{
+  padding:15px 32px;border-radius:100px;border:none;cursor:pointer;
+  background:linear-gradient(145deg,var(--accent-light),var(--accent-dark));
+  color:#fff;font-size:14px;font-weight:600;letter-spacing:0.04em;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 6px 20px rgba(185,138,94,0.35);
+}
+.contact-form button:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(185,138,94,0.45)}
+/* ===== TELEGRAM BOT CARD ===== */
+.contact-bot-card{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:40px 32px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--border-soft);
+  backdrop-filter:blur(12px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.06),inset 0 1px rgba(255,255,255,0.9);
+}
+html.dark .contact-bot-card{box-shadow:0 25px 60px rgba(0,0,0,0.35),inset 0 1px rgba(255,244,222,0.06)}
+.contact-bot-card h4{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--text-main);margin-bottom:8px}
+.contact-bot-card p{font-size:13px;color:var(--text-muted);line-height:1.7;max-width:320px;margin-bottom:24px}
+.btn-telegram{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 36px;border-radius:100px;
+  background:linear-gradient(145deg,var(--accent-light),var(--accent-dark));
+  color:#fff;font-size:15px;font-weight:600;letter-spacing:0.03em;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 6px 20px rgba(185,138,94,0.35);
+}
+.btn-telegram:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(185,138,94,0.45)}
+
+/* ===== FOOTER (ElysiumAI dark) ===== */
+.site-footer{
+  background:#1e1a16;color:rgba(238,229,214,0.7);
+  padding:70px 24px 40px;position:relative;overflow:hidden;
+}
+.site-footer::before{
+  content:'';position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
+  width:min(310px,58vw);height:54px;border-radius:50%;
+  border-top:1px solid rgba(214,181,111,0.3);
+  background:radial-gradient(rgba(214,181,111,0.09),transparent 66%);
+  box-shadow:0 -10px 45px rgba(214,181,111,0.05);
+}
+.footer-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.footer-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:48px;margin-bottom:48px}
+.footer-column h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.18em;color:rgba(238,229,214,0.4);margin-bottom:16px}
+.footer-column a{display:block;font-size:13px;color:rgba(238,229,214,0.5);margin-bottom:10px;transition:color 0.2s}
+.footer-column a:hover{color:rgba(238,229,214,0.9)}
+.footer-bottom{border-top:1px solid rgba(214,181,111,0.12);padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:rgba(238,229,214,0.35)}
+
+/* ===== MOBILE ===== */
+@media(max-width:767px){
+  .header-nav{display:none}
+  .header-social{display:none}
+  .header-inner{padding:0 12px;gap:8px}
+  .header-cta{padding:8px 14px;font-size:11px}
+  .logo-text{font-size:1.1rem}
+  .theme-toggle{width:40px;height:30px}
+  .hero{padding:110px 16px 70px}
+  .hero-grid{gap:40px}
+  .hero-image-wrap{max-width:100%}
+  .hero-benefits{grid-template-columns:repeat(2,1fr)}
+  .section{padding:60px 16px}
+  .features-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .contact-form{padding:24px 20px}
+  .price-col{padding:24px 20px}
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0deg) scale(1);opacity:0}
+  10%{opacity:0.8}
+  90%{opacity:0.6}
+  100%{transform:translateY(110vh) rotate(720deg) scale(0.3);opacity:0}
+}
+@keyframes sway{0%,100%{margin-left:0}25%{margin-left:30px}75%{margin-left:-30px}}
+.anim-up{animation:fadeUp 0.6s ease-out forwards}
+.anim-in{animation:fadeIn 0.8s ease-out forwards}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.2s}.d3{animation-delay:0.3s}.d4{animation-delay:0.4s}
+
+/* ===== FALLING PETALS ===== */
+.petals-container{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.petal{
+  position:absolute;top:-20px;
+  animation:fall linear infinite,sway ease-in-out infinite;
+  opacity:0;
+}
+.petal:nth-child(1){left:5%;width:14px;height:14px;animation-duration:12s,3s;animation-delay:0s}
+.petal:nth-child(2){left:15%;width:10px;height:10px;animation-duration:14s,3.5s;animation-delay:1s}
+.petal:nth-child(3){left:25%;width:12px;height:12px;animation-duration:11s,2.8s;animation-delay:3s}
+.petal:nth-child(4){left:35%;width:8px;height:8px;animation-duration:15s,4s;animation-delay:0.5s}
+.petal:nth-child(5){left:45%;width:16px;height:16px;animation-duration:13s,3.2s;animation-delay:2s}
+.petal:nth-child(6){left:55%;width:10px;height:10px;animation-duration:16s,3.8s;animation-delay:4s}
+.petal:nth-child(7){left:65%;width:14px;height:14px;animation-duration:12s,3s;animation-delay:1.5s}
+.petal:nth-child(8){left:75%;width:11px;height:11px;animation-duration:14s,3.3s;animation-delay:2.5s}
+.petal:nth-child(9){left:85%;width:13px;height:13px;animation-duration:11s,2.7s;animation-delay:0.8s}
+.petal:nth-child(10){left:92%;width:9px;height:9px;animation-duration:15s,3.6s;animation-delay:3.5s}
+.petal:nth-child(11){left:10%;width:12px;height:12px;animation-duration:13s,3.1s;animation-delay:5s}
+.petal:nth-child(12){left:50%;width:15px;height:15px;animation-duration:14s,3.4s;animation-delay:6s}
+.petal:nth-child(13){left:70%;width:8px;height:8px;animation-duration:12s,2.9s;animation-delay:4.5s}
+.petal:nth-child(14){left:30%;width:11px;height:11px;animation-duration:16s,3.7s;animation-delay:7s}
+.petal:nth-child(15){left:60%;width:13px;height:13px;animation-duration:11s,2.8s;animation-delay:5.5s}
+html.dark .petal{opacity:0.5}
+</style>
+</head>
+<body>
+<!-- FALLING PETALS -->
+<div class="petals-container">
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(201,169,97,0.7)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(226,197,126,0.6)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(185,138,94,0.65)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="rgba(201,169,97,0.5)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(226,197,126,0.55)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="rgba(185,138,94,0.5)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(201,169,97,0.7)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" fill="rgba(226,197,126,0.45)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(185,138,94,0.6)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" fill="rgba(201,169,97,0.55)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(226,197,126,0.5)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="rgba(185,138,94,0.5)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(201,169,97,0.65)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" fill="rgba(226,197,126,0.4)"/></svg>
+  <svg class="petal" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 2 8 2 12c0 0 6 4 10 4s10-4 10-4c0-4-6-10-10-10z" fill="rgba(185,138,94,0.55)"/></svg>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M6 8h12M6 14h10M6 20h12"/></svg>
+      </div>
+      <span class="logo-text">Elena <span>Beauty</span></span>
+    </a>
+    <nav class="header-nav">
+      <a href="#services">Услуги</a>
+      <a href="#about">Обо мне</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="header-right">
+      <div class="header-social">
+        <a href="#" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.66-2.88 8.01-3.43 3.82-1.55 4.61-1.82 5.13-1.83.11 0 .37.03.53.17.14.13.18.3.2.46-.01.12-.01.31-.02.49z"/></svg></a>
+        <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Сменить тему">
+        <svg class="theme-toggle-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="theme-toggle-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <a href="https://t.me/nail163_bot" target="_blank" rel="noopener" class="header-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Записаться
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-floral hero-floral-left" viewBox="0 0 200 200" fill="none"><path d="M20 80 C40 40,80 20,120 30 C160 40,180 80,170 120 C160 160,120 180,80 170 C40 160,10 120,20 80Z" fill="rgba(201,169,97,0.22)"/><path d="M40 85 C55 55,85 40,115 48 C145 56,160 85,150 115 C140 145,110 158,80 148 C50 138,30 115,40 85Z" fill="rgba(201,169,97,0.14)"/></svg>
+  <svg class="hero-floral hero-floral-right" viewBox="0 0 200 200" fill="none"><path d="M180 80 C160 40,120 20,80 30 C40 40,20 80,30 120 C40 160,80 180,120 170 C160 160,190 120,180 80Z" fill="rgba(201,169,97,0.18)"/><path d="M160 85 C145 55,115 40,85 48 C55 56,40 85,50 115 C60 145,90 158,120 148 C150 138,170 115,160 85Z" fill="rgba(201,169,97,0.12)"/></svg>
+
+  <div class="hero-content">
+    <div class="hero-grid">
+      <div class="anim-up">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></svg>
+          Санкт-Петербург
+        </div>
+        <h1 class="hero-title anim-up d1">Elena —<br>твой <em>мастер красоты</em></h1>
+        <p class="hero-desc anim-up d2">Создаю идеальный маникюр и педикюр, которые подчёркивают твой стиль. Классика, аппаратная техника, укрепление, дизайн — всё с душой и профессионализмом.</p>
+        <div class="hero-actions anim-up d3">
+          <a href="https://t.me/nail163_bot" target="_blank" rel="noopener" class="btn-primary">Записаться <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a href="#services" class="btn-secondary">Мои услуги</a>
+        </div>
+        <div class="hero-benefits anim-up d4">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/></svg><strong>Индивидуально</strong><small>к каждому клиенту</small></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg><strong>Качество</strong><small>премиум-материалы</small></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13.744 17.736a6 6 0 1 1-7.48-7.48"/><path d="M15 6h1v4"/><path d="m6.134 14.768.866-.5 2 3.464"/><circle cx="16" cy="8" r="6"/></svg><strong>Доступно</strong><small>цены без накруток</small></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><strong>Опыт</strong><small>5+ лет</small></div>
+        </div>
+      </div>
+      <div class="anim-in d2">
+        <div class="hero-image-wrap">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=750&fit=crop" alt="Елена — мастер маникюра и педикюра" loading="lazy">
+          <div class="hero-image-badge"><strong>✨ Елена</strong><span>Мастер маникюра и педикюра в Санкт-Петербурге</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section bg-warm" id="services">
+  <div class="section-inner">
+    <div class="section-label">Услуги</div>
+    <h2 class="section-title">Что я <em>предлагаю</em></h2>
+    <p class="section-desc">Профессиональный маникюр и педикюр. Работаю с душой и использую только премиум-материалы.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/></svg></div>
+        <h3 class="service-name">Маникюр</h3>
+        <p class="service-desc">Классический, аппаратный, комбинированный. Покрытие гель-лаком, укрепление, дизайн любой сложности.</p>
+        <div class="service-price">от 1 500 <small>₽</small></div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2v20"/><path d="M4.93 4.93l14.14 14.14"/><path d="M19.07 4.93L4.93 19.07"/></svg></div>
+        <h3 class="service-name">Педикюр</h3>
+        <p class="service-desc">Аппаратный и классический. Уход за стопами, покрытие, обработка проблемных зон, SPA-уход.</p>
+        <div class="service-price">от 2 000 <small>₽</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=800&fit=crop" alt="Елена" loading="lazy">
+      </div>
+      <div class="about-content">
+        <div class="section-label">Обо мне</div>
+        <h3>Елена</h3>
+        <div class="location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Санкт-Петербург</div>
+        <p>Привет! Меня зовут Елена. Я мастер маникюра и педикюра с многолетним опытом в Санкт-Петербурге. Моя философия — красота в деталях. Каждый клиент для меня уникален, я подхожу к работе с душой и вниманием к мельчайшим нюансам.</p>
+        <p>Использую только профессиональные материалы премиум-брендов, постоянно прохожу обучение и слежу за мировыми трендами в nail-индустрии.</p>
+        <div class="about-stats">
+          <div class="about-stat"><strong>5+</strong><span>лет опыта</span></div>
+          <div class="about-stat"><strong>500+</strong><span>клиентов</span></div>
+          <div class="about-stat"><strong>50+</strong><span>курсов и МК</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section bg-warm">
+  <div class="section-inner">
+    <div class="section-label">Преимущества</div>
+    <h2 class="section-title">Почему выбирают <em>меня</em></h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <h4>Индивидуальный подход</h4>
+        <p>Подбираю форму и дизайн под твой стиль. Никаких шаблонов — только то, что подходит именно тебе.</p>
+      </div>
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        <h4>Премиум-материалы</h4>
+        <p>Только проверенные бренды. Качество и безопасность на первом месте.</p>
+      </div>
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/></svg>
+        <h4>Стерильность</h4>
+        <p>Многоразовая стерилизация, одноразовые расходники — твоя безопасность.</p>
+      </div>
+      <div class="feature-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        <h4>Постоянное развитие</h4>
+        <p>Регулярные мастер-классы, новые техники, мировые тренды в nail-дизайне.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section class="section" id="prices">
+  <div class="section-inner">
+    <div class="section-label">Прайс</div>
+    <h2 class="section-title">Цены на <em>услуги</em></h2>
+    <p class="section-desc">Прозрачные цены без скрытых платежей. Оплата после процедуры — наличными или переводом.</p>
+    <div class="price-panel">
+      <div class="price-cols">
+        <div class="price-col">
+          <div class="price-col-title">💅 Маникюр</div>
+          <div class="price-row"><div class="price-row-info"><h4>Классический маникюр</h4><p>Обрезной / необрезной</p></div><span class="price-row-val">1 500 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Аппаратный маникюр</h4><p>Без замачивания</p></div><span class="price-row-val">1 700 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Комбинированный маникюр</h4><p>Аппаратный + обрезной</p></div><span class="price-row-val">1 900 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Покрытие гель-лак</h4><p>Премиум-бренды</p></div><span class="price-row-val">+1 000 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Укрепление ногтей</h4><p>Гель / акригель / полигель</p></div><span class="price-row-val">+800 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Дизайн ногтей</h4><p>1 ноготь</p></div><span class="price-row-val">от 100 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Снятие покрытия</h4></div><span class="price-row-val">300 ₽</span></div>
+        </div>
+        <div class="price-col">
+          <div class="price-col-title">🦶 Педикюр</div>
+          <div class="price-row"><div class="price-row-info"><h4>Аппаратный педикюр</h4></div><span class="price-row-val">2 000 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Классический педикюр</h4></div><span class="price-row-val">1 800 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Комбинированный педикюр</h4></div><span class="price-row-val">2 200 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Покрытие гель-лак</h4><p>Ноги</p></div><span class="price-row-val">+1 000 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>Обработка проблемных зон</h4><p>Натоптыши, трещины</p></div><span class="price-row-val">+500 ₽</span></div>
+          <div class="price-row"><div class="price-row-info"><h4>SPA-уход за стопами</h4><p>Пилинг, маска, массаж</p></div><span class="price-row-val">1 200 ₽</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section bg-warm" id="reviews">
+  <div class="section-inner">
+    <div class="section-label">Отзывы</div>
+    <h2 class="section-title">Что говорят <em>клиенты</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Елена — настоящий профессионал! Маникюр держится 3+ недели, аккуратно, красиво. Очень довольна, теперь только к ней!»</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">А</div><div><div class="testimonial-name">Анна</div><div class="testimonial-service">Маникюр + покрытие</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Педикюр — просто сказка! Очень тщательно, без боли. После SPA-ухода ножки как у младенца. Рекомендую!»</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">М</div><div><div class="testimonial-name">Марина</div><div class="testimonial-service">Педикюр + SPA-уход</div></div></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">«Хожу к Елене уже полгода — и маникюр, и педикюр. Всегда идеально, дизайн — огонь! Очень чуткий мастер.»</p>
+        <div class="testimonial-author"><div class="testimonial-avatar">О</div><div><div class="testimonial-name">Ольга</div><div class="testimonial-service">Маникюр + дизайн</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Частые <em>вопросы</em></h2>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-question" aria-expanded="true"><span class="faq-number">01</span>Как записаться на приём?<span class="faq-plus">+</span></button>
+        <div class="faq-answer-wrap"><p class="faq-answer">Напиши в Telegram, WhatsApp или заполни форму ниже. Я отвечу в течение часа и подберу удобное время.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span class="faq-number">02</span>Где ты находишься в Санкт-Петербурге?<span class="faq-plus">+</span></button>
+        <div class="faq-answer-wrap"><p class="faq-answer">Работаю в уютной студии в центре города. Точный адрес пришлю после записи.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span class="faq-number">03</span>Как подготовиться к процедуре?<span class="faq-plus">+</span></button>
+        <div class="faq-answer-wrap"><p class="faq-answer">К маникюру/педикюру — без покрытия за 3-5 дней. К стрижке — чистые волосы. К окрашиванию — не мыть голову 1-2 дня. Подробные рекомендации отправлю после записи.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span class="faq-number">04</span>Какие способы оплаты?<span class="faq-plus">+</span></button>
+        <div class="faq-answer-wrap"><p class="faq-answer">Наличные, перевод на карту, СБП. Оплата после процедуры.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span class="faq-number">05</span>Можно ли перенести или отменить запись?<span class="faq-plus">+</span></button>
+        <div class="faq-answer-wrap"><p class="faq-answer">Да, предупреди за 3-4 часа. Перенос без штрафа — ценю твоё и своё время.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Контакты</div>
+    <h2 class="section-title">Запишись <em>через Telegram</em></h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><strong>Санкт-Петербург, центр</strong><span>Уютная студия в центре города</span></div></div>
+        <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><div><strong>+7 (999) 123-45-67</strong><span>Звони с 10:00 до 20:00</span></div></div>
+        <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div><strong>@elena_beauty</strong><span>Telegram / WhatsApp — отвечаю быстро</span></div></div>
+        <div class="contact-info-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><strong>Пн–Сб: 10:00–20:00</strong><span>Вс: по записи</span></div></div>
+      </div>
+      <div class="contact-bot-card">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:40px;height:40px;color:var(--accent);margin-bottom:16px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.66-2.88 8.01-3.43 3.82-1.55 4.61-1.82 5.13-1.83.11 0 .37.03.53.17.14.13.18.3.2.46-.01.12-.01.31-.02.49z"/></svg>
+        <h4>Запись через Telegram</h4>
+        <p>Напиши мне в Telegram-бот — выбери услугу, удобное время, и я всё подтвержу. Быстро, удобно, без звонков.</p>
+        <a href="https://t.me/nail163_bot" target="_blank" rel="noopener" class="btn-telegram">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.74 3.99-1.74 6.66-2.88 8.01-3.43 3.82-1.55 4.61-1.82 5.13-1.83.11 0 .37.03.53.17.14.13.18.3.2.46-.01.12-.01.31-.02.49z"/></svg>
+          Записаться в Telegram
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <div class="footer-column"><h4>Услуги</h4><a href="#services">Маникюр</a><a href="#services">Педикюр</a><a href="#prices">Цены</a><a href="https://t.me/nail163_bot" target="_blank" rel="noopener">Запись</a></div>
+      <div class="footer-column"><h4>Клиентам</h4><a href="#prices">Цены</a><a href="#reviews">Отзывы</a><a href="#faq">Вопросы</a><a href="https://t.me/nail163_bot" target="_blank" rel="noopener">Запись</a><a href="#about">О мастере</a></div>
+      <div class="footer-column"><h4>Контакты</h4><a href="tel:+79991234567">+7 (999) 123-45-67</a><a href="#">Telegram</a><a href="#">WhatsApp</a><a href="#">Instagram</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Elena Beauty</span><span>Санкт-Петербург. Создано с ❤️</span></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(b=>{b.addEventListener('click',()=>{const i=b.closest('.faq-item');i.classList.toggle('open');b.setAttribute('aria-expanded',i.classList.contains('open'))})})
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;e.preventDefault();const el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})})})
+function toggleTheme(){const d=document.documentElement;d.classList.toggle('dark');localStorage.setItem('ElenaBeauty-theme',d.classList.contains('dark')?'dark':'light')}
+(function(){const t=localStorage.getItem('ElenaBeauty-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')})()
+</script>
+</body>
+</html>
